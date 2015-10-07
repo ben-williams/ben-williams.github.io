@@ -141,7 +141,7 @@ contourplot(fit ~ wind + temperature, data = grd,
  main = &quot;Cube Root Ozone (cube root ppb)&quot;,  
  col.regions = terrain.colors(50))</code></pre>
 <p><strong>i.</strong> <span style="color:red">(1.5 pt.)</span> Extend the model with two independent variables <code>ozo1</code> to include an additional covariate - solar radiation - which may also have an effect on ozone levels. The model fits a “hyper-surface” to the data in 3 dimensions. You can think of it as a multiple regression of ozone on three independent variables with all possible interactions. (where the “interactions” are a bit more flexible in a LOWESS model than in a linear model). The model essentially allows for a different ozone response to temperature and wind conditions at different levels of solar radiation:</p>
-<pre class="r"><code>ozo2 &lt;- loess(cubert ~ wind+temperature+radiation, data = enviro, span=1, degree=2)
+<pre class="r"><code>ozo2 &lt;- loess(ozone ~ wind+temperature+radiation, data = enviro, span=1, degree=2)
 summary(ozo2)</code></pre>
 <p>Use an approximate F-test to compare the model fits:<br />
 <code>anova(ozo1, ozo2)</code></p>
