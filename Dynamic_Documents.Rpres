@@ -1,0 +1,117 @@
+
+Dynamic Documents
+========================================================
+author: Ben Williams
+date: October 20 & 22, 2015
+
+
+What are Dynamic Documents?
+========================================================
+
+ - Produce content do not focus on "end product"
+ - Improves clarity
+ - Reduces errors (potentially)
+ - Allows for repeatability
+ 
+ Also it can save you time!  
+   *If done right*
+ 
+
+What is needed:
+=======================================================
+
+ - Data
+ - Code
+ - Text
+ - Version Control
+ 
+ We are going to use:  
+ RStudio (via Rmarkdown, knitr, and Pandoc)  
+ Git  
+ GitHub
+ 
+ to produce HTML, Word, and .pdf files
+ 
+ 
+Tools
+========================================================
+**R** - you should know what this is...  
+**RStudio** - an R IDE, text editor, project manager, interface to git   
+**Rmarkdown** - language established for creating webpages without all the HTML markup  
+**Pandoc** - program to convert one language to another, built into RMarkdown v2  
+**knitr** - R package that updates "sweave" and increases flexibility, built into RMarkdown v2  
+**LaTeX** - software for typesetting and making .pdf files
+**Git** - version control, **GitHub** - a place for sharing (and backing up) code and files
+
+
+Basic workflow
+========================================================
+ - Create new repository in github  
+ - Create version control RStudio project - linked to github  
+ - Work in R/Markdown saving versions with git  
+ - Create document/presentation - same general code for both
+
+Data
+========================================================
+
+- Machine & human readable
+- How will you share it?
+- What happens in the future?
+
+**Do NOT make/keep/enable crappy data protocols ever!**
+
+- Any data manipulations should be done with code...
+
+- More on data at https://ben-williams.github.io
+
+Git & GitHub
+========================================================
+ - Probably the most challenging part to learn  
+ - Steep learning curve  
+ - Once you learn it you won't go back
+
+      "If you don't use GitHub, use GitHub, end of decision 
+      tree - Jim Thorson"
+
+Why Git Rules
+========================================================
+![](phd.png)
+
+Why might Git not rule?
+==================================
+![](git_commit.png)
+*xkcd.com*
+
+How Git works
+========================================================
+
+ - Git is used to manage a project, or a set of files, as they change over time. 
+ - Git stores this information in a data structure called a repository.
+ - A git repository contains:
+      - A set of commit objects.
+      - A set of references to commit objects, called heads.
+
+A Commit contains
+========================================================
+
+ - A set of files, reflecting the state of a project at a given point in time.
+ - References to parent commit objects.
+ - An SHA1 name, a 40-character string that uniquely identifies the commit object. The name is composed of a hash of relevant aspects of the commit, so identical commits will always have the same name.
+
+A Head contains
+========================================================
+ - A reference to a commit object. 
+ - Each head has a name. 
+ - By default, there is a head in every repository called master. 
+ - A repository can contain any number of heads. 
+ - At any given time, one head is selected as the "current head"" 
+   - This head is aliased to HEAD, always in capitals.
+   
+Why Git is great
+=======================================================
+ - No longer need to save version names.
+ - Can "go back in time" and checkout older versions.
+ 
+How Rmarkdown works
+=======================================================
+![alt text](boxes.png)
