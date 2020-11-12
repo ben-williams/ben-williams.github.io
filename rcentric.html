@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>survey-centric r users - group workflow</title>
+  <title>SCRUG - group workflow  (aka playing well with others)</title>
     
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -784,9 +784,12 @@ hljs.initHighlightingOnLoad();
   <div class="slides">
 
 <section data-state="section" data-transition="linear" data-transition-speed="default">
-<h1>survey-centric r users - group workflow</h1><p>Ben Williams<br/>2020-10-22</p>
+<h1>SCRUG - group workflow  (aka playing well with others)</h1><p>Ben Williams</p>
 
 <div class="slideContent" >
+<p><a href="mailto:ben.williams@noaa.gov">ben.williams@noaa.gov</a></p>
+
+<p>2020-11-12</p>
 
 </div>
 
@@ -814,7 +817,7 @@ hljs.initHighlightingOnLoad();
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>Road map</h3>
+<h3>What does that mean?</h3>
 <div class="slideContent" >
 <p>project organization<br/>
 efficient coding<br/>
@@ -826,7 +829,7 @@ compartmentalized &amp; extendable (i.e. putting it all together) </p>
 <section data-transition="linear" data-transition-speed="default">
 <h3>Project organization</h3>
 <div class="slideContent" >
-<p>Use a &ldquo;project oriented&rdquo; workflow!!!!</p>
+<p>Use a <strong>project oriented</strong> workflow!!!!</p>
 
 <ul>
 <li>easily accomplished in RStudio </li>
@@ -836,11 +839,7 @@ compartmentalized &amp; extendable (i.e. putting it all together) </p>
 <p>File structure &amp; naming</p>
 
 <ul>
-<li>pick one and stick with it (everyone)
-
-<ul>
-<li>example time</li>
-</ul></li>
+<li>pick one and stick with it (everyone)</li>
 </ul>
 
 </div>
@@ -856,9 +855,8 @@ compartmentalized &amp; extendable (i.e. putting it all together) </p>
 <code>figs</code><br/>
 <code>text</code> - if writing a document it is easier to keep it seperate </p>
 
-<p>other folders:</p>
-
-<p><code>output</code> - any processed data<br/>
+<p>other folders:<br/>
+<code>output</code> - any processed data<br/>
 <code>literature</code><br/>
 <code>src</code></p>
 
@@ -875,7 +873,8 @@ compartmentalized &amp; extendable (i.e. putting it all together) </p>
 <ul>
 <li>file names</li>
 <li>object names</li>
-<li>dates functions</li>
+<li>dates </li>
+<li>functions</li>
 <li>assignments</li>
 <li>spacing</li>
 </ul>
@@ -890,24 +889,31 @@ compartmentalized &amp; extendable (i.e. putting it all together) </p>
 <li>file names</li>
 </ul>
 
-<p>Good:<br/>
-lower_case_and_underscore.R</p>
+<p>The use of <code>_</code> and <code>-</code> have searchable meaning see<br/>
+<a href="https://speakerdeck.com/jennybc/how-to-name-files">how to name files</a>  </p>
 
-<p><code>data_2017-01-20.csv</code> or add a version <code>data_2017-01-20_v2.csv</code></p>
+</div>
 
-<p>Do not use:<br/>
-<code>DontUseMixedCases.R</code> (aka CamelCase)<br/>
-<code>periods.are.meh.but.ok.csv</code><br/>
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>Efficient coding</h3>
+<div class="slideContent" >
+<ul>
+<li>file names</li>
+</ul>
+
+<p>Good: lower_case_and_underscore.R<br/>
+<code>data_2017-01-20.csv</code>; <code>data_2017-01-20_v2.csv</code></p>
+
+<p><code>DontUseMixedCases.R</code> (aka CamelCase)<br/>
 <code>dont_use.periods_and.underscore.R</code><br/>
-<code>X10_20.16_T_AND_Y410.csv</code> (nobody understands this)</p>
+<code>X10_20.16_T_AND_Y410.csv</code> (nobody understands this)
+<code>spaces are bad mmmkay.dat</code></p>
 
-<p>Be consistent within and across projects (e.g., all data file names contain the same information)
-<code>datasource_briefdescription_firstyear_lastyear.csv</code><br/>
-Examples:<br/>
-<code>survey_bio_1988-2016.csv</code><br/>
-<code>fishery_cpue_1998-2016.csv</code>  </p>
-
-<p>The use of <code>_</code> and <code>-</code> have searchable meaning see <a href="https://speakerdeck.com/jennybc/how-to-name-files">how to name files</a>  </p>
+<p>Be consistent within and across projects 
+<code>source_briefdescription.csv</code><br/>
+<code>survey_bio_2016.csv</code><br/>
+<code>fishery_cpue_2016.csv</code>  </p>
 
 </div>
 
@@ -919,18 +925,29 @@ Examples:<br/>
 <li>object names</li>
 </ul>
 
-<p>Rename all columns on import. Keep names short, but descriptive.</p>
+<p>Rename all columns on import. Keep names short, but descriptive.<br/>
+<code>df %&gt;% rename_all(tolower)</code></p>
 
 <p>Use: <code>year</code> or <code>Year</code><br/>
-<code>cpue</code> or <code>std.cpue</code> (update: I’ve moved away from using <code>.</code> and now use <code>_</code> e.g., <code>std_cpue</code>)</p>
+<code>cpue</code> or <code>std_cpue</code> (I use <code>_</code> instead of <code>.</code>)</p>
 
 <p><code>No spaces</code> - <code>No_Upper_And_Upper_Case</code> - <code>NO_ALL_CAPS</code></p>
 
 <p><code>catch</code> instead of <code>c</code> - you can search catch (<code>c</code> is a function command…)</p>
 
-<p>Data types: if a character or factor use a capital letter, if double, or integer use lower case name. Define data types at the beginning of a script.</p>
+</div>
 
-<p>Example: integer <code>year</code> and factor <code>Year</code> in this simple model</p>
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>Efficient coding</h3>
+<div class="slideContent" >
+<ul>
+<li>object names</li>
+</ul>
+
+<p>Data types: if a <code>character</code> or <code>factor</code> use a capital letter, if <code>numeric</code> use lower case name. Define data types at the beginning of a script.</p>
+
+<p>Example: <em>integer</em> <code>year</code> and <em>factor</em> <code>Year</code> in this simple model</p>
 
 <p><code>lm(catch ~ year) !=  lm(catch ~ Year)</code></p>
 
@@ -966,11 +983,9 @@ Dates regularly have confounding errors - clean them at the beginning of a scrip
 
 <p>Should <em>briefly</em> describe what the function does</p>
 
-<p>I sometimes start function names with an <code>f</code> at the beginning, to clearly identify them as a function.</p>
+<p><code>f_ricker</code> or <code>ricker_fun</code> or <code>rickker_sr</code> to name a Ricker spawner-recruit function are more informative than <code>r</code>, <code>rick</code>, or <code>sr</code> which don’t tell you what it does - be at least slightly descriptive.</p>
 
-<p><code>f_brief_function_description</code></p>
-
-<p><code>f_ricker</code> or <code>ricker_fun</code> to name a Ricker spawner-recruit function are more informative than <code>r</code>, <code>rick</code>, or <code>sr</code> which don’t tell you what it does - be at least slightly descriptive.</p>
+<p>Remember: what makes sense to you now likely won&#39;t in two years - or <em>ever</em> for someone else.</p>
 
 </div>
 
@@ -982,20 +997,32 @@ Dates regularly have confounding errors - clean them at the beginning of a scrip
 <li>assignments</li>
 </ul>
 
-<p>Use <code>&lt;-</code>, not <code>=</code> (<em>acception - I use <code>=</code> inside functions to reference that it is part of a function</em>)<br/>
-Use <code>TRUE</code> and <code>FALSE</code>, not <code>T</code> or &ldquo;F (the latter can be reassigned, the former cannot).  </p>
+<p>Use <code>&lt;-</code>, not <code>=</code><br/>
+<em>acception: I use <code>=</code> inside functions to reference that it is part of a function</em>  </p>
 
-<p>The<code>&lt;-</code>assignment shortcut is <code>Alt-</code>, the “pipe” <code>%&gt;%</code> operator shortcut is <code>Cntrl+Shift+M</code> more shortcuts in Rstudio can be found by pressing <code>Alt+Shift+K</code>. </p>
+<p>Use <code>TRUE</code> and <code>FALSE</code>, not <code>T</code> or <code>F</code> (the latter can be reassigned, the former cannot).  </p>
+
+<p>The <code>&lt;-</code> assignment shortcut is <code>Alt-</code>, the “pipe” <code>%&gt;%</code> operator shortcut is <code>Cntrl+Shift+M</code> more shortcuts in Rstudio can be found by pressing <code>Alt+Shift+K</code>. </p>
 
 <p><code>Ctrl+Alt</code> = multiple cursors<br/>
 <code>Ctrl+Alt+Shift+M</code> = rename in scope</p>
 
-<p>Spacing</p>
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>Efficient coding</h3>
+<div class="slideContent" >
+<ul>
+<li>Spacing</li>
+</ul>
 
 <p>Place spaces around all binary operators (<code>=</code>, <code>+</code>, <code>-</code>, <code>&lt;-</code>, etc.).<br/>
 Do not place a space before a comma, but always place one after a comma.<br/>
 Place a space before left parenthesis, except in a function call.<br/>
 There should be a hard return after each pipe <code>%&gt;%</code>.</p>
+
+<p>Make code easy to read</p>
 
 </div>
 
@@ -1007,12 +1034,27 @@ There should be a hard return after each pipe <code>%&gt;%</code>.</p>
 
 <ul>
 <li>A brief decription of what it does </li>
-<li>Who made it and their contact e-mail </li>
+<li>Who made it and their contact </li>
 <li>Further notes on data access, units, etc. </li>
-<li><p>list all libraries used in the analysis - have libraries you no longer use? delete them it will reduce conflicts.</p></li>
-<li><p>typically I bring in all data at the start and clean it. If the files are huge, or numerous, there may be a code chunk(s) deeper into the script to deal with it. </p></li>
-<li><p>fold your code!</p></li>
-<li><p>Use <code># load ----</code> or <code># data ----</code> to create breaks and make it easy to navigate within your scripts and make lengthy analyses much easier to follow.</p></li>
+<li>list all libraries used in the analysis - have libraries you no longer use? delete them it will reduce conflicts.</li>
+</ul>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3> Scripts</h3>
+<div class="slideContent" >
+<p>general structure:</p>
+
+<ul>
+<li>bring in all data at the start and clean it. 
+If the files are huge them break then into smaller files.<br/></li>
+<li>fold your code!</li>
+<li>Use:<br/>
+<code># load ----</code><br/>
+<code># data ----</code><br/>
+to create breaks and make it easy to navigate within your scripts and make lengthy analyses much easier to follow.</li>
 </ul>
 
 </div>
@@ -1029,14 +1071,14 @@ There should be a hard return after each pipe <code>%&gt;%</code>.</p>
 
 # load ----
 
-library()
+source(&#39;code/helper.R&#39;)
 source(&#39;code/functions.R&#39;)
 
 # data ----
-data &lt;- read_csv(&#39;data/data_file.csv&#39;)
+read_csv(&#39;data/data_file.csv&#39;) %&gt;% 
+  rename_all(tolower) %&gt;%     
+  mutate(Year = factor(year)) -&gt; data
 
-data %&gt;%    
-    mutate(Year = factor(year)) -&gt; data
 # analysis ----
 </code></pre>
 
@@ -1153,4 +1195,3 @@ function commandsForSlide(indexh) {
 </body>
 
 </html>
-
