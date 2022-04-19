@@ -1829,14 +1829,18 @@ Prism.languages.r={comment:/#.*/,string:{pattern:/(['"])(?:\\.|(?!\1)[^\\\r\n])*
             <ul>
             <li><a href="#coding-style">Coding style</a></li>
             </ul></li>
-            <li><a href="#suggested-norms">Suggested norms</a>
+            <li><a href="#suggested-norms---general">Suggested norms -
+            General</a>
             <ul>
-            <li><a href="#naming-conventions">Naming
-            conventions</a></li>
             <li><a href="#organization">Organization</a></li>
             <li><a href="#scripts">Scripts</a></li>
-            <li><a href="#naming-conventions-1">Naming
+            <li><a href="#naming-conventions">Naming
             conventions</a></li>
+            </ul></li>
+            <li><a href="#suggested-norms---specific">Suggested norms -
+            Specific</a>
+            <ul>
+            <li><a href="#framework">Framework</a></li>
             </ul></li>
             </ul>
           </div>
@@ -1889,15 +1893,12 @@ even more important.</p>
 </ul>
 </div>
 </div>
-<div id="suggested-norms" class="section level1">
-<h1>Suggested norms</h1>
+<div id="suggested-norms---general" class="section level1">
+<h1>Suggested norms - General</h1>
 <p>First we’ll separate the workflow (personal taste and habits e.g.,
 IDE) from the product (logic and output). The product in our case being
 raw and cleaned data should not be influenced by workflow-related
 operations.</p>
-<div id="naming-conventions" class="section level2">
-<h2>Naming conventions</h2>
-</div>
 <div id="organization" class="section level2">
 <h2>Organization</h2>
 <div id="projects" class="section level3">
@@ -2013,7 +2014,7 @@ iris %&gt;%
 
 # analysis ----</code></pre>
 </div>
-<div id="naming-conventions-1" class="section level2">
+<div id="naming-conventions" class="section level2">
 <h2>Naming conventions</h2>
 <div id="file-names" class="section level3">
 <h3>File names</h3>
@@ -2116,6 +2117,60 @@ return after each pipe <code>%&gt;%</code>.</p>
 <p>Not this</p>
 <pre class="r"><code>dat&lt;-mtcars %&gt;% tibble::rownames_to_column(&#39;car&#39;) %&gt;% mutate(ratio=mpg/hp,Cyl=factor(cyl)) 
 ggplot(dat,aes(qsec,ratio,color=Cyl))+geom_point()+scale_color_scico_d(palette=&#39;roma&#39;)</code></pre>
+</div>
+</div>
+</div>
+<div id="suggested-norms---specific" class="section level1">
+<h1>Suggested norms - Specific</h1>
+<div id="framework" class="section level2">
+<h2>Framework</h2>
+<p>Establish assessments on annual basis.</p>
+<pre class="r"><code>species/group  
+  |-- raw_data              Rpackage-1 # specific to data query
+  |-- cleaned_data          Rpackage-2 # basic data cleaning
+  |-- eda                   Rpackage-2 # visualization of raw data
+  |-- assessment_functions  Rpackage-3 # comps, .dat builder, process output, etc.
+  |-- safe_figs             Rpackage-3 # consistent figures (both safe &amp; presentation)</code></pre>
+<div id="code-framework" class="section level3">
+<h3>Code framework</h3>
+<p>General idea is to have a consistent code base
+<code>Parent code</code> with variants to address specifics for similar
+groups. These groups generally split out by region, then species
+clusters, w/a couple of species with highly specific needs.</p>
+<pre class="r"><code>Parent code
+    |--GOA/AI
+    |  |-- groundfish
+    |  |       |--flatfish
+    |  |       |--rockfish
+    |  |       |--pollock
+    |  |       |--pcod
+    |  |       |--sablefish
+    |  |       |--other
+    |  |-- crab
+    |
+    |--EBS
+        |-- groundfish
+        |     |--flatfish
+        |     |--rockfish
+        |     |--pollock
+        |     |--pcod
+        |     |--other
+        |-- crab</code></pre>
+</div>
+<div id="teams-framework" class="section level3">
+<h3>Teams framework</h3>
+<p>An associated “teams” framework would be:</p>
+<ul>
+<li>General code developers/maintainers
+<ul>
+<li>Available to assist on any/multiple assessments</li>
+</ul></li>
+<li>GOA/EBS - species/group specific
+<ul>
+<li>groundfish teams</li>
+<li>crab teams</li>
+</ul></li>
+</ul>
 </div>
 </div>
 </div>
