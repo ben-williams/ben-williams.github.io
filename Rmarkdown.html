@@ -2014,7 +2014,7 @@ header-includes:
   #```
 
 ---</code></pre>
-<p>This would be followed by a R chunk that process the titel and a second YAML that builds the title.</p>
+<p>This would be followed by a R chunk that process the title and a second YAML that builds the title.</p>
 <pre class="r"><code>if(params$complex==&quot;no&quot;){
    title = params$dft_title
   } else {
@@ -2088,7 +2088,7 @@ Packages can be added to preamble (YAML) of your document in a couple of ways:</
   pages    = &quot;1143--1148&quot;,
 }</code></pre>
 <p>My recommendation is to slightly change this so that it will work well with <code>bibtex</code> and <code>biblatex</code>, mainly this is using a single <code>CitekeyArticle</code> style and using <code>{}</code> instead of <code>&quot;</code> throughout.
-Otherwise there are time when capitolization will not work correctly.</p>
+Otherwise there are time when capitalization will not work correctly.</p>
 <pre><code>@article{Akira2001,
       Author = {Akira, N and Yanagimoto, T and Mito, K and Katakura, S},
       DOI = {10.1046/j.1365-2419.2001.00181.x},
@@ -2131,8 +2131,18 @@ Something about limited entry management [@Akira2001] and @Ahrestani2013 talks a
 </code></pre>
 <p>This will produce an output that looks like:</p>
 <pre><code>Something about limited entry management (Akira et al. 2001) and Ahrestani et al. (2013) talks about
-process error.</code></pre>
-<p>Note the square brackets around Akira and not around Ahrestani and the differing outputs.</p>
+process error.
+
+References
+
+Ahrestani, F.S., Hebblewhite, M., and Post, E. 2013. The importance of observation versus process er-
+ror in analyses of global ungulate populations. Scientific Reports 3. Nature Publishing Group. doi:
+10.1038/srep03125.
+Akira, N., Yanagimoto, T., Mito, K., and Katakura, S. 2001. Interannual variability in growth of walleye
+pollock, theragra chalcogramma, in the central Bering Sea. Fisheries Oceanography 10(4): 367–375. doi:
+10.1046/j.1365-2419.2001.00181.x.
+</code></pre>
+<p>Note the square brackets around Akira and not around Ahrestani and the differing outputs. Additionally, see that the references are in alphabetical order.</p>
 <p>There are numerous entry types for <code>.bib</code> files: article, book, booklet, conference… <a href="https://www.bibtex.com/e/entry-types/">see here</a></p>
 <p>You can also find styles - no more changing reference formats by hand.<br />
 <a href="https://www.zotero.org/styles">Styles</a> or <a href="https://readthedocs.org/projects/citation-style-language/downloads/pdf/master/">build/tweak your own</a>
