@@ -1826,7 +1826,11 @@ Prism.languages.r={comment:/#.*/,string:{pattern:/(['"])(?:\\.|(?!\1)[^\\\r\n])*
             <li><a href="#very-brief-primer-on-latex"><span class="toc-section-number">1.2</span> (Very) brief primer on LaTeX</a></li>
             </ul></li>
             <li><a href="#references"><span class="toc-section-number">2</span> References</a></li>
-            <li><a href="#figures"><span class="toc-section-number">3</span> Figures</a></li>
+            <li><a href="#syntax"><span class="toc-section-number">3</span> Syntax</a>
+            <ul>
+            <li><a href="#lines"><span class="toc-section-number">3.1</span> Lines</a></li>
+            </ul></li>
+            <li><a href="#figures"><span class="toc-section-number">4</span> Figures</a></li>
             </ul>
           </div>
           <div data-position="sidebar:post-end" class="InjectedComponents"><div class="dark-theme-toggler"><div class="toggle "><div class="toggle-track"><div class="toggle-track-check"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAAlwSFlzAAALEwAACxMBAJqcGAAAAVlpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IlhNUCBDb3JlIDUuNC4wIj4KICAgPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICAgICAgPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIKICAgICAgICAgICAgeG1sbnM6dGlmZj0iaHR0cDovL25zLmFkb2JlLmNvbS90aWZmLzEuMC8iPgogICAgICAgICA8dGlmZjpPcmllbnRhdGlvbj4xPC90aWZmOk9yaWVudGF0aW9uPgogICAgICA8L3JkZjpEZXNjcmlwdGlvbj4KICAgPC9yZGY6UkRGPgo8L3g6eG1wbWV0YT4KTMInWQAABlJJREFUWAm1V3tsFEUcntnXvXu0tBWo1ZZHihBjCEWqkHiNaMLDRKOtQSKaiCFKQtS/SbxiFCHGCIkmkBSMwZhQNTFoQZD0DFiwtCDFAkdDqBBBKFj63rvdnfH7zfVo5aFBj0l2Z/dm5vd98/0es8dYjlpr62azufnDQNZcU1PciMfjWvb9rvZSMk4Ayfb36pLH13189GC8LAtIRLLPt+pzwrCuLq4ISEv/gHmitrAwfPbEkXc/ad4dL6iujrvyX0jcitgd/yZlZqftP6995Mr5TVLa22Tn8XVX2g/XLSRjUu7Q79jonS7I7hS7/0oOb5VyqF52n98oj7esXX07EjlxwXWisRmSnm3b29TTM8iYrjmFBWExubxwY/uhNas4r/WySl1fc5cetDMd7ydl+lMJJRw5WC8ud62Xx5rfepzwxgZmbhUYNS5Stvsj4yo2GXJEFBVHWDBkfdbR9HpYBaaUajDnBLKKpl1xRKYcgGtMCqEzTaSnThk/SQT0uJqTqFNBmXMCsZE48DzRZRMBRjv1GHNdk3HBImF9ZUvTyxM40pMKVc4JZBXQOLOFoDeKSxdp6HIQcO4rjYT9fn0pjbz9GLt7BAAODmjSVReXUMFzNW5x5vfxp2mIxZjIuQKJxAmFa+is2DQJJQ0JyBVExNOYcJnPxx/6/utnijmP555ALEagKAGGnGn64QORBjARcIA/yJk7JMJBLRrNtybTvH88KGjCf2jK86bhzmMcwDKFZEQvbIhxFYhChoMWMzU2iWznlIBEVJOsP+1bdX/ALx9l7jApADeDAEcMkE90JnUmmGl4USKQ0xhoW3JB5XY0YrxYWhLwMZZypUyjDGH35AbNwgUGiFBPpuGbHCpAOV1ZGXf2f/taftAv31DyeymN2d1IhAFAwTOmnzF/kKcdh3me7CYCOVNgycju84u8DeVlwfFq9/ZlTfldYrMUjOlrkjkD+rU+WzCROkcEchIDHR011syZW9JHD7y07N6JvhWMpz3pugaTkB6lWFVCKkhck0zzeMp2utq+uHrmfxOgoCO/Z8CXPlEQ1bdH8wgvhSIkEG0ICcQeExIFGdimjvKka7btJFZuaXOammIGKUCFQ53j9EN1dYKWqHf0t2w407W2tgs6h89ZnImjB55flh81tt9XirjjDuSl+oIPRQ0iWPgNZ5GqTqbBe3vSzEl5n5PhWKwocyR2HlqYN61qV18WjYjE8JLARZPQsUSim8foIRYTlGr02Ly7piASFRtKJ4VfieYhxdS2JcDVMN6xVOKZyrCGm8b108lrLRVzvptLH7IoEFLFANes6KnDi+uxfmvFnF17oALq5u1agu3/YfHkcSFzeSggV5eXRfIB7CHNcO5SUI+Ih5Ir7f4MAV9IqdFzdZgNpZw1Gcs1mNvgGbTbqQ9/cz7ZuuhgyYRQ49ljTyWHhr2DwpNHHFf+5gnWZ3Bharo+0TD5dNMw5vv9RlVpSRDHK4TlnoukhtYApuOHejSZQuo5g/A9BysdKRCyLl6062fN37OXMDlvUJtUrtmxo0avrW3wTrYs3jJ9RvRVChrmSmanPMpX2OXMsmDGh6AiEIwBAlvkOqIdBy+8JyAz8pz7QxiDth4KDy5uAlwzrWTnwC8Vc4KVAMZ3YUZ+IqoIjP3h5KFFX1ZMy3uW+7RhEDHgTi0zC9rS7uhPCDiNrGFyqBeERtKN/B0YlyFCkw0NJ5C0Ojv7zvT1a1WV1TuvZDdL4NTgB7CASYpsen6gqvG5jmTf5qHedADgkBl3D0nkSgNhZACDyi0FUKZRr3IdRjgN4WPPoFMIIegIK3mqd38fS80mcJKelM4szNyzZtQbkchGePuBRS8Eg9pHU8ojRQpSqs+ajAIwTjjUMQ/nvTNM0kicwYxZIYMh/891DYi+fvedB+c1xsm4lDU6ya+Axtz+RiAzEVYbajQOpq17F0R9QevNcEhfcU+xvyQQUalGJBSesqOkgPQ4YNyUZL9fSvUPDjoNAwN8/dwFjaczNkc3ptaMud1EIDtGcmXTcefO2cGSvKIFfp/2JIJxlq7xEl3nVPM4fDeIbPkD16/ptNc0bDu7qxbsu0R2JGywWMIjF2ft3tjfloAyQAGXiOn8hrqwbVvMXzaO+QeHXP6nF0wvX74Hf4NGG5GPjSlYoyM3P/0FbCT6zvM/yYoAAAAASUVORK5CYII=" role="presentation" style="pointer-events: none;" width="16" height="16"></div> <div class="toggle-track-x"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAAlwSFlzAAALEwAACxMBAJqcGAAAAVlpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IlhNUCBDb3JlIDUuNC4wIj4KICAgPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICAgICAgPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIKICAgICAgICAgICAgeG1sbnM6dGlmZj0iaHR0cDovL25zLmFkb2JlLmNvbS90aWZmLzEuMC8iPgogICAgICAgICA8dGlmZjpPcmllbnRhdGlvbj4xPC90aWZmOk9yaWVudGF0aW9uPgogICAgICA8L3JkZjpEZXNjcmlwdGlvbj4KICAgPC9yZGY6UkRGPgo8L3g6eG1wbWV0YT4KTMInWQAABwNJREFUWAmtV1tsFFUY/s6Z2d22zLYlZakUCRVaQcqlWIiCiS1gTEB9UAO+GR9En3iQGI0xJiSiRB98MjEq8cEQTSBeHhQM0V7whtEGDWC90BYitxahtNtu25058/v/ZzvLbilawJNM5+yZ89+//1LgJhYRNLW1uDfBAvpGiIk2O5auvfFxqIH3ZJ8/u06GN6Z9+wVl5SjcD1IbZa/UPkPyYl2uR4dreoD2bnbYxTlBBRytkHXtAREphP5KuH4lddx9h70yxX05t7yYXwGb6W8nx1jibpl2rFlGBxcG9M18okOrn7Bnk/BAO/4bI0UeEE1zjBp3UmvjOxJXJdaKN/ZiIu4tOZrAb4aTdZAZArKmWeiiJZ6jt5tiagdCS9+6cgO1Ne6Mvhe+ixTIfyDVhipnK9p+P0Edqx9RW/YZtQVGmOLChRxNNlyPsTEgPQKMB3dbEHa0h1awYmQ83enTd2vmUtvKd1Glv2RkzBb+kZGRrKtjzG60Wguhd/lJZBingbcfWWe72vjT75bJDrhYtvA0hrurETDr5HyF2Knb1MM4ab//xIoOqueA0edRnkkinTyJdYvqLFDZO4zUPFCvVoDjJq4T7TE61IWh4x5KqxX5KVKkX8WZ/t2ov2cb3MHt4dhIyOxIJxJOOF6xRx/99BksXLoecWcXytILMNBDqKpnGZWPquYfPxY8iXGR9fK+SgFrgcRPXPjVqhehL+3EmZ5RGJQi1QBU8TPThQnOQzm+5UXGIcetUeEAfP13VwzpI+w1jGJWdSliNfvVhiMPiOsllJag4M/UGHiqM6dlBb2OTLKHHV6KkvogrJ4XhBWniWK/Gp1MQyf93FOeUXKmKk/FzJxbQtKLjFXYT4USupy8fQVir2ynVEBiZMG0qtOHMS/AW4Gwrk7BG3C1F0B5nqNKE0CME4MfVRLPnXkBKe+ipvoFhNQywOhdghvLi0F8ReyVXV4BKTBRbbe5f64zR/DHsdZw1hJfeWlHl/GNRJzDxrd5m192z78TMaVnKELZoINZS4BzQ7vtnZljSnha/pPCbkuxzXcupYwI5tIeCpGc0Yp9tWHZQy/rmYhRfNgg4bHJBYLzGkxsRJF4XKlE2jBOHNSv3kY7Tj6vthzPFl61BrYwqFlmEQhtSVXmLiksxLmtRgYXI1ULU61JJ4eVKmG3/5sCVgpbMT6OMJ2E08/29Xf3w6v4FnHdCjfWgXu/O8Z5mLdCkeRs2khHe1DqOtQwbHWTAnM5S2HNmhALYo5KjkPFrMMKjZl6HxhWIAb0BqE+/73GrBRQUsKYiBu4JX8ycI6wtw+i5ef3NZpsrKVSHYCP37jwGDgeE1SA0S/xtl5SU2fs1ApEp0qTLVRjgyycDSsLHMSwmFltZMStR3uLLg6BdLhDa5dC6ryU2pHBe1BVO9tUcwfitJt2CLJZUHoG6T7Op75u0IyK31TCPcwFqgPk/KCaD3dFOuZBCO7xvCT/j048b3I3c7F2+WuOW7qdgkucFYlcQ4qop3yzTX7WaKfOCccye3Ts1Etq0+a/BHCF1yPgF3tAUkR6OrtGmo6gl94qqcXKh3rDyrOkPa58URoWcov2Mo6M+0QjrqKB+b7++oMa9Sz+ZkM0mie6aAtnGUvhmxaI+TogPOSQedgWioGSHFLn3v4kLh4HRspNmOGv41k+55siLFp2z6xYeJjhljFcbmxJlr4ga06TbevSByz/glQq4BJx46/c+237PbBqEYKxX3HpmKZEnQnr65X20hqJYaNcLoFOLiJk2LuBbyg7Q0OEn+hm0P3honxFD6rdxYorKpeIoi4YSSvyQHQIbM5t4+YNxLj/OxhVOOE4585qGpjnq+wSx6Q9CtNxTjd5klB+g6Mv36r0+b9cZFi44WYkHdG2ZWb3TtOUOXyVAlKlpGvJIAJ3eBMyfYS5C0qRZGtC85j+4sOasDe9xznPYezhhO/2Q6eP2fSOvYHOjtuQ1a9Q1VKynVDaMc8E0tptdxUsTFpFIYjcZKcbnoaQTNdiqCwNlL4G7oziSqGnT1ALf34vhk4R5zU3qYV9ONp9K88RtouShE68JwaU8dFw5W617shWa9ykeaBIn2hcsvPgL00k45QdTCZuSVcTRNs+8fnyLvooQfR5iujAnR9bxfY2xOVOxFS8SK3Le0l48VyYu1M8HRe5JD8wKPTjYnifaK3Wfn/GChYQ8ZAi6WRzWgqLV5YrsVLnZaVSoXU1g9gOIDwFySiGi+Zdrnzr7J3r+SMuszlcQCRn8lNGcTuSy2jOI7o9mxjZo+vR3ej3tN+ifRSOyUTS0+VMOid93cCubeiy/6TImS0QxRSCq2vxKr45zV+FQnjWH6D2xg+E9EatLcLAdHTgtGGD80D6jM0+aOl4wJgO/f96R2aJKCQ3yvgftRhdFMOpd6oAAAAASUVORK5CYII=" role="presentation" style="pointer-events: none;" width="16" height="16"></div></div> <div class="toggle-thumb"></div></div> <input type="checkbox" aria-label="Switch between Dark and Default theme" class="toggler-screen-reader-only"></div></div>
@@ -1880,7 +1884,7 @@ tinytex::pdflatex(&#39;test.tex&#39;)</code></pre>
 <li><code>bookdown</code> R package for formatting multi-chapter documents in <code>Rmd</code></li>
 <li><code>blogdown</code> R package for making websites using <code>Rmd</code></li>
 <li><code>pagedown</code> R package for making paginated html documents - basically html that looks kinda .pdf like</li>
-<li><code>pkgdown</code> R package for create Rpackage documentation website</li>
+<li><code>pkgdown</code> R package for creating Rpackage documentation website</li>
 <li><code>quarto</code> Separate program that effectively acts like Rmd, but for multiple languages (R, Python, Julia) - essential where things are going, don’t worry it renders Rmd files.</li>
 </ul>
 <p><strong>Other items</strong></p>
@@ -1920,7 +1924,7 @@ tinytex::pdflatex(&#39;test.tex&#39;)</code></pre>
 <li>.Rmd -&gt; knitr -&gt; .md -&gt; pandoc -&gt; out</li>
 <li>output can be .docx, .html, .pdf, and others</li>
 </ul></li>
-<li><p>YAML: ‘YAML Ain’t Markup Language’</p></li>
+<li><p>YAML: ‘Yet Another Markup Language’ morphed to ‘YAML Ain’t Markup Language’</p></li>
 </ul>
 <p>Open a new .rmd file and it will have this basic YAML</p>
 <pre class="r"><code>---
@@ -1938,7 +1942,7 @@ output:
   bookdown::pdf_document2:
     toc: true
 ---</code></pre>
-<p>Let’s add some authors as well (there are multiple methods for adding authors &amp; affiliations, they don’t all work well together)</p>
+<p>Let’s add some authors as well (there are multiple methods for adding authors &amp; affiliations, they don’t all work well together - we’ll cover this)</p>
 <pre class="r"><code>---
 title: &quot;Untitled&quot;
 author: |
@@ -1950,7 +1954,10 @@ output:
   pdf_document:
     toc: true
 ---</code></pre>
-<p>What else can you do with the YAML? You can call parameters, you can also use R code within the YAML, and you can incorporate LaTeX settings.</p>
+<p>What else can you do with the YAML? You can call parameters, you can also use R code within the YAML, and you can incorporate LaTeX settings.
+Here we have a YAML for a generalized SAFE document.
+The author can go in change the chapter number, species name, whether it is a complex or not, the region, the authors and the date.
+This will then get formatted for the SAFE in a Council approved manner.</p>
 <pre class="r"><code>---
 params:
   chapter: 10
@@ -2088,7 +2095,7 @@ Packages can be added to preamble (YAML) of your document in a couple of ways:</
   pages    = &quot;1143--1148&quot;,
 }</code></pre>
 <p>My recommendation is to slightly change this so that it will work well with <code>bibtex</code> and <code>biblatex</code>, mainly this is using a single <code>CitekeyArticle</code> style and using <code>{}</code> instead of <code>&quot;</code> throughout.
-Otherwise there are time when capitalization will not work correctly.</p>
+Otherwise there are times when capitalization will not work correctly.</p>
 <pre><code>@article{Akira2001,
       Author = {Akira, N and Yanagimoto, T and Mito, K and Katakura, S},
       DOI = {10.1046/j.1365-2419.2001.00181.x},
@@ -2157,8 +2164,48 @@ bibliography: references.bib
 csl: canjfas.csl
 ---</code></pre>
 </div>
-<div id="figures" class="section level1" number="3">
-<h1><span class="header-section-number">3</span> Figures</h1>
+<div id="syntax" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Syntax</h1>
+<p>R markdown follows the syntax in Pandoc’s markdown - <a href="https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf">cheat sheet</a></p>
+<div id="lines" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Lines</h2>
+<p>Line spacing of text become quite valuable particularly for larger documents.</p>
+<p>Sentences on the same line will be read in line and produce the same output.</p>
+<pre><code>Sentence with one space following. Another sentence.
+Sentence with four spaces following.    Another sentence.</code></pre>
+<p>Results:</p>
+<pre class="r"><code>Sentence with one space following. Another sentence.
+Sentence with one space following. Another sentence.</code></pre>
+<p>A sentences on one line followed by a single space then a sentence on the next line will also produce the same output.</p>
+<pre><code>Sentence with one space following. 
+Another sentence on the next line.</code></pre>
+<p>Results:</p>
+<pre class="r"><code>Sentence with one space following. Another sentence on the next line.</code></pre>
+<p>A sentences on one line followed by two or more spaces then a sentence on the next line will start a new line.</p>
+<pre><code>Sentence with two spaces following.   
+Another sentence on the next line.
+
+A space between lines starts a new paragraph</code></pre>
+<p>Results:</p>
+<pre class="r"><code>Sentence with one space following. 
+Another sentence on the next line.
+
+A space between lines starts a new paragraph</code></pre>
+<p>When writing follow each sentence with one space and a new line, because tracking down issues and editing text (finding the correct location) is much easier later on if your document looks like:</p>
+<pre><code>Pollock have been sampled in the western Gulf of Alaska (Figure \@ref{fig:map}; Table \@ref(tab:sample)) during spring acoustic surveys since 1983 [@NMFS2013]. 
+Macroscopic estimates of female maturity have been determined using a 5-stage [@Stahl2008a] or 8-stage key [@Williams2007], which were condensed to immature/mature with pre-spawning and later stages considered mature.
+Fish were measured for fork length to the nearest cm and weighed in grams; ages were determined by the AFSC Age and Growth Program [@Matta2012]. 
+Ovary samples of mature pollock were collected opportunistically from AFSC trawl surveys and stored in 10\% buffered formalin solution. 
+Each sample had associated location and date of capture information as well as individual weight (g), fork length (cm) and age information. 
+The spatial extent of these data is dependent upon the sampling location of the NMFS survey trawls and incorporates regional variability. 
+Samples were typically collected from winter pre-spawning cruises, allowing us to examine annual variability.</code></pre>
+<p>instead of this</p>
+<pre><code>Pollock have been sampled in the western Gulf of Alaska (Figure \@ref{fig:map}; Table \@ref(tab:sample)) during spring acoustic surveys since 1983 [@NMFS2013]. Macroscopic estimates of female maturity have been determined using a 5-stage [@Stahl2008a] or 8-stage key [@Williams2007], which were condensed to immature/mature with pre-spawning and later stages considered mature. Fish were measured for fork length to the nearest cm and weighed in grams; ages were determined by the AFSC Age and Growth Program [@Matta2012]. Ovary samples of mature pollock were collected opportunistically from AFSC trawl surveys and stored in 10\% buffered formalin solution. 
+Each sample had associated location and date of capture information as well as individual weight (g), fork length (cm) and age information. The spatial extent of these data is dependent upon the sampling location of the NMFS survey trawls and incorporates regional variability. Samples were typically collected from winter pre-spawning cruises, allowing us to examine annual variability.</code></pre>
+</div>
+</div>
+<div id="figures" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Figures</h1>
 <p>There are multiple ways to add a figure (of course!). The first method is within an R chunk.</p>
 <pre class="markdown"><code>```{r}
 plot(mpg ~ cyl, data = mtcars)
@@ -2167,10 +2214,10 @@ plot(mpg ~ cyl, data = mtcars)
 <pre class="markdown"><code>```{r, fig.cap=&quot;Something about cars&quot;}
 plot(mpg ~ cyl, data = mtcars)
 ```</code></pre>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-9"></span>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-12"></span>
 <img src="data:image/png;base64,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9kb3/uk9gGSrHY29ZMvFU2DpS7+S5xzPGx4vNzjb+mtPYAGYuYj/+UgyBLxOAVaSyUBHW17Z/rPw5hYJoFoyHl50MCFPHobT+atk6vX0rd8Nmy13NfEv/Qi+X/6sKdCWH+ugAsimIv4DmEaDv+cHJY78joX0d52bY+KPXnvd8FIXMy+zo5fuBL/ZfnxBBZC9NPoPoHRUzvOzofmNi+ORns8D5HwfAUrNjyNfv3RIAeTzAe8BmPPAg5Ov2TOS7wPiy9eeqJMjUf73gFPzM18vuAEFkDwW6dOv9wBKg2DqdxhmSzDMbOBPc260g/3h7e+FVlmdhBtse+YXUADFwfjuzkplI9LjxtMA8pec2fZPClX+AB28AJjx//xLXj07wbnluO8yALNxn3OgcWmnY/tHRDbdDTs4A1Ja7fVp66+4wQSwOiLeaQCej0uWj8F3cUjUc++Z8rRr69UHE8Da2qyuDo97HoXTbgPobAZ0Wvp6u780ATj/GD5ffspPhh08G3cyA7L+jbdePQHca9PF1nwfFUxG4HIO3ME+QCczIKZAP+B9H2A1CuOx76OCZoPZc/D29wertt7FSQCzGjp/hLd/6IsAfiw9EWauSLw59n4o0gyG/cv8iGAHuwCdLAMflw+Dshhunf+jQKWrsrwPwtLUz/t0vDj16Fv5CtRtr4UggPu4K9amDP7H85YXi49FfZ7X4S262gdelN+EYOvbJ4B7ia/NauhHJ198bzjx58WTpLynl/633OHVCDev0neF2P4vHWAAQHsIANIIANIIANIIANIIANIIANIIANIIANIIANIIANIIANIIANIIANIIANIIANIIANIIANIIANIIANIIANIIANIIANIIANIIANIIANIIANIIANIIANIIANIIANIIANIIANIIANIIANIIANIIANIIANIIANIIANIIANIIANIIANIIANIIANIIANIIANIIANIIANIIANIIANIIANIIANIIANIIIDzxWbT3oesfoi8IIDwE0CICCA8BtIgAwkMALSKA8BBAiwggPATQIgLYTfGnJ1E0OLoyX98No8dfs2/PougFAbSJAHbS3XGUGpwu0mf8wbvs+2PzFQG0iAB20beXUS4d+VPzvJ9/P3ktIIAWEcAuGicj//ViMU9eBw4WpTlQOgMigDYRwA5KnuizOU/xxTgf8dP0jwTQIgLYQbPsiX+RTn5Os2/kOwPmlYAAWkQAOygf9ivJK0E+FTL7AgTQIgLYQePlUZ/Vd8yQz2ZABNAmAthBmwGkc6B8BkQAbSKAHbQZQDoHymdABNAmAthBG/sA2RwonwERQJsIYAetjgIlT/oH+ReDf+czIAJoEwHsoGTY53OgcXEOOBn0f325+poA2kIAuyg/ExyfR8uhPo0eDfMqCKBFBLCLVmuB8if99FWhWBNKAC0igJ00P14b/2bUF38ggBYRwG5KrweInl6tvrM6NkoALSKAQGQrodE2AgjEtDQdQnsIIAzXQ6Y9W0EAAZjZ+8NoEQEEwBwCZQ9gOwggAN+Oo+g5438rCADSCADSCADSCADSCADSCADSCADSCADSCADSCADSCADSCADSCADSCADSCADSCADSCADSCADSCADSCADSCADSCADSCADSCADSCADSCADSCADSCADSCADSCADSCADSCADSCADSCADSCADSCADSCADSCADSCADSCADSCADSCADSCADS/gsy0p1g2iD1yAAAAABJRU5ErkJggg==" alt="Something about cars" width="384" />
 <p class="caption">
-Figure 3.1: Something about cars
+Figure 4.1: Something about cars
 </p>
 </div>
 </div>
