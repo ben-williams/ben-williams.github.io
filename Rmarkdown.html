@@ -1829,6 +1829,8 @@ Prism.languages.r={comment:/#.*/,string:{pattern:/(['"])(?:\\.|(?!\1)[^\\\r\n])*
             <li><a href="#syntax"><span class="toc-section-number">3</span> Syntax</a>
             <ul>
             <li><a href="#lines"><span class="toc-section-number">3.1</span> Lines</a></li>
+            <li><a href="#nested-lists"><span class="toc-section-number">3.2</span> Nested lists</a></li>
+            <li><a href="#the-maths"><span class="toc-section-number">3.3</span> The maths</a></li>
             </ul></li>
             <li><a href="#figures"><span class="toc-section-number">4</span> Figures</a></li>
             </ul>
@@ -2163,10 +2165,22 @@ output:
 bibliography: references.bib
 csl: canjfas.csl
 ---</code></pre>
+<p>Citations keys take the @ sign while square brackets and/or minus signs introduce variation</p>
+<p><code>[@smith2020]</code> becomes (Smith 2020)<br />
+<code>@smith2020</code> becomes Smith (2020)<br />
+<code>[-@smith2020]</code> becomes (2020)<br />
+<code>-@smith2020</code> becomes 2020<br />
+<code>[@smith2020 35]</code> becomes (Smith 2020, p.35)<br />
+<code>[@smith2020 33-35]</code> becomes (Smith 2020, pp. 33-35)<br />
+<code>[@smith2020, ch. 1]</code> becomes (Smith 2020, ch. 1)<br />
+<code>[@smith2020; Jones2022]</code> becomes (Smith 2020; Jones 2020)<br />
+<code>[see @smith2020, for details]</code> becomes (see Smith 2020, for details)<br />
+<code>@smith2020 [33-35]</code> becomes (Smith 2020, pp. 33-35)</p>
 </div>
 <div id="syntax" class="section level1" number="3">
 <h1><span class="header-section-number">3</span> Syntax</h1>
-<p>R markdown follows the syntax in Pandoc’s markdown - <a href="https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf">cheat sheet</a></p>
+<p>R markdown follows the syntax in Pandoc’s markdown - have a look at the <a href="https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf">cheat sheet</a><br />
+I’ll only cover some of the more esoteric aspects of the syntax.</p>
 <div id="lines" class="section level2" number="3.1">
 <h2><span class="header-section-number">3.1</span> Lines</h2>
 <p>Line spacing of text become quite valuable particularly for larger documents.</p>
@@ -2185,7 +2199,8 @@ Another sentence on the next line.</code></pre>
 <pre><code>Sentence with two spaces following.   
 Another sentence on the next line.
 
-A space between lines starts a new paragraph</code></pre>
+A space between lines starts a new paragraph*</code></pre>
+<p>*Multiple blank lines between paragraphs reduce to one.</p>
 <p>Results:</p>
 <pre class="r"><code>Sentence with one space following. 
 Another sentence on the next line.
@@ -2202,6 +2217,57 @@ Samples were typically collected from winter pre-spawning cruises, allowing us t
 <p>instead of this</p>
 <pre><code>Pollock have been sampled in the western Gulf of Alaska (Figure \@ref{fig:map}; Table \@ref(tab:sample)) during spring acoustic surveys since 1983 [@NMFS2013]. Macroscopic estimates of female maturity have been determined using a 5-stage [@Stahl2008a] or 8-stage key [@Williams2007], which were condensed to immature/mature with pre-spawning and later stages considered mature. Fish were measured for fork length to the nearest cm and weighed in grams; ages were determined by the AFSC Age and Growth Program [@Matta2012]. Ovary samples of mature pollock were collected opportunistically from AFSC trawl surveys and stored in 10\% buffered formalin solution. 
 Each sample had associated location and date of capture information as well as individual weight (g), fork length (cm) and age information. The spatial extent of these data is dependent upon the sampling location of the NMFS survey trawls and incorporates regional variability. Samples were typically collected from winter pre-spawning cruises, allowing us to examine annual variability.</code></pre>
+<p>Spaces on line that start with a vertical line <code>|</code> are kept</p>
+<pre><code>| one-space
+|     five-space
+|        eight-space</code></pre>
+<p>Text with the syntax <code>&lt;!--your comments --&gt;</code> is omitted from output</p>
+<p><code>[visit my website](https://www.noaa.gov/)</code> becomes <a href="https://www.noaa.gov/">visit my website</a><br />
+<code>[www.noaa.gov](https://www.noaa.gov/)</code> becomes <a href="https://www.noaa.gov/">www.noaa.gov</a><br />
+or just wright the website <a href="https://www.noaa.gov/" class="uri">https://www.noaa.gov/</a> - which will be converted when the doc is compiled.</p>
+</div>
+<div id="nested-lists" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Nested lists</h2>
+<p>Can be generated using <code>*</code>, <code>+</code>, or <code>-</code> or can be numbered.</p>
+<pre><code>1. play
+   - ski
+   - camp  
+2. sleep
+3. work
+   - computer
+      + programs</code></pre>
+<ol style="list-style-type: decimal">
+<li>play
+<ul>
+<li>ski</li>
+<li>camp<br />
+</li>
+</ul></li>
+<li>sleep</li>
+<li>work
+<ul>
+<li>computer
+<ul>
+<li>programs</li>
+</ul></li>
+</ul></li>
+</ol>
+</div>
+<div id="the-maths" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> The maths</h2>
+<p>Inline equations go between a pair of single dollar signs <code>$</code> — with no space between the signs and the equation itself</p>
+<p>Einstein figured out <span class="math inline">\(E=mc^2\)</span>, but you are smarter. <code>$E=mc^2$</code></p>
+<p>Block equations go in between a pair of double dollar signs.<br />
+Einstein figured out <span class="math display">\[E=mc^2,\]</span> but you are smarter. <code>$$E=mc^2,$$</code></p>
+<p>Numbered equations are easy (in .pdf), just need to bring in some LaTeX.</p>
+<p>Einstein figured out
+<span class="math display">\[\begin{equation}
+E=mc^2,
+\end{equation}\]</span>
+but you are smarter.</p>
+<p><code>\begin{equation}</code><br />
+<code>E=mc^2,</code><br />
+<code>\end{equation}</code></p>
 </div>
 </div>
 <div id="figures" class="section level1" number="4">
