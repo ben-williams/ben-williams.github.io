@@ -2038,9 +2038,9 @@ names contain the same information:<br />
 <code>datasource_briefdescription_firstyear_lastyear.csv</code><br />
 Examples: <code>survey_bio_1988_2016.csv</code><br />
 <code>fishery_cpue_1998_2016.csv</code></p>
-<p>However, this will will be challenging when developing functions to
-work for multiple years in which case it may be easier to use simpler
-names (e.g., <code>survey_bio.csv</code>) <em>then your folder structure
+<p>However, this will be challenging when developing functions to work
+for multiple years in which case it may be easier to use simpler names
+(e.g., <code>survey_bio.csv</code>) <em>then your folder structure
 becomes very important</em>.</p>
 </div>
 <div id="object-names" class="section level3">
@@ -2055,7 +2055,7 @@ conflicts.</p>
 using <code>.</code> and now use <code>_</code> e.g.,
 <code>std_cpue</code>)</p>
 <p><code>No spaces</code><br />
-<code>No_Upper_And_Upper_Case</code><br />
+<code>No_Upper_And_lower_Case</code><br />
 <code>NO_ALL_CAPS</code></p>
 <p><code>catch</code> works better than <code>c</code> and you can
 search for and change <code>catch</code> (plus <code>c</code> is a
@@ -2115,7 +2115,7 @@ return after each pipe <code>%&gt;%</code>.</p>
   geom_point() +
   scale_color_scico_d(palette = &#39;roma&#39;)</code></pre>
 <p>Not this</p>
-<pre class="r"><code>dat&lt;-mtcars %&gt;% tibble::rownames_to_column(&#39;car&#39;) %&gt;% mutate(ratio=mpg/hp,Cyl=factor(cyl)) 
+<pre class="r"><code>dat&lt;-mtcars%&gt;%tibble::rownames_to_column(&#39;car&#39;)%&gt;%mutate(ratio=mpg/hp,Cyl=factor(cyl)) 
 ggplot(dat,aes(qsec,ratio,color=Cyl))+geom_point()+scale_color_scico_d(palette=&#39;roma&#39;)</code></pre>
 </div>
 </div>
