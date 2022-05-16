@@ -1963,14 +1963,16 @@ This will then get formatted for the SAFE in a Council approved manner.</p>
 <pre class="r"><code>---
 params:
   chapter: 10
-  species: &quot;Northern Rockfish&quot;
-  complex: &quot;no&quot;
-  area: &quot;Gulf of Alaska&quot;
+  species: Northern Rockfish
+  complex: TRUE
+  area: Gulf of Alaska
   tier: 3
-  dft_title: &quot;`r params$chapter`. Assessment of the `r params$species` stock in the `r params$area`&quot;
+
 
 author: &quot;Benjamin C. Williams, Peter-John F. Hulson, Chris R. Lunsford&quot;
 date: &quot;November 2022&quot;
+
+title: "`r params$chapter`. Assessment of the `r params$species` `r ifelse(isFALSE(params$complex), 'stock', 'stock complex')` in the `r params$region`" 
   
 # do not adjust the YAML below this line  
 # ------------------------------------------------
@@ -1988,52 +1990,8 @@ geometry:
   - right=1in
       
 fig_caption: true
-month: &quot;`r format(Sys.Date(), &#39;%B&#39;)`&quot;
-year: &quot;`r format(Sys.Date(), &#39;%Y&#39;)`&quot;
-
-header-includes:
-  - |
-    #```{=latex}
-    \usepackage{fvextra}
-    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{
-      breaksymbolleft={},
-      showspaces = false,
-      showtabs = false,
-      breaklines,
-      commandchars=\\\{\}
-    }
-   \usepackage{sectsty}
-   \allsectionsfont{\centering}
-   \usepackage{xcolor}
-   
-   \usepackage[labelsep=period]{caption}
-   \usepackage{float}
-   \let\origfigure\figure
-   \let\endorigfigure\endfigure
-   \renewenvironment{figure}[1][2] {
-      \expandafter\origfigure\expandafter[H]
-    } {
-      \endorigfigure
-   }
-   
-   \renewcommand{\thefigure}{`r params$chapter`-\arabic{figure}}
-   \renewcommand{\thetable}{`r params$chapter`-\arabic{table}}
-   \pagenumbering{gobble}
-
-  #```
-
 ---</code></pre>
-<p>This would be followed by a R chunk that process the title and a second YAML that builds the title.</p>
-<pre class="r"><code>if(params$complex==&quot;no&quot;){
-   title = params$dft_title
-  } else {
-    title = paste0(params$chapter, &quot;. Assessment of the &quot;, params$species, &quot; stock complex in the &quot;, params$area)  
-  }
 
-species = tolower(params$species)</code></pre>
-<pre class="r"><code>---
-title: `r title`
----</code></pre>
 <p>Getting a bit ahead of ourselves but you should get the idea that there is a whole lot of functionality.</p>
 </div>
 <div id="very-brief-primer-on-latex" class="section level2" number="1.2">
