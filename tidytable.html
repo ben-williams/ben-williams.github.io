@@ -1522,7 +1522,6 @@ Prism.languages.r={comment:/#.*/,string:{pattern:/(['"])(?:\\.|(?!\1)[^\\\r\n])*
 library(purrr)
 library(dplyr)
 library(broom)
-library(tidyr)
 library(gapminder)
 library(microbenchmark)</code></pre>
 <p>Basic filter and median calculation, compare <code>dplyr</code> to
@@ -1543,9 +1542,9 @@ library(microbenchmark)</code></pre>
   }
 )</code></pre>
 <pre><code>## Unit: milliseconds
-##       expr      min       lq      mean   median        uq     max neval
-##      dplyr 8.356401 9.022101 11.131285 9.813001 11.469400 45.6476   100
-##  tidytable 5.178301 6.008000  7.318277 6.550551  7.790352 19.7168   100</code></pre>
+##       expr    min      lq      mean  median       uq     max neval
+##      dplyr 8.3063 8.94395 10.341127 9.66065 10.58810 32.0135   100
+##  tidytable 5.2085 5.90965  6.921159 6.38370  7.11415 28.6098   100</code></pre>
 <p>Fit a linear model</p>
 <pre class="r"><code>microbenchmark(
   dplyr = {
@@ -1564,8 +1563,8 @@ library(microbenchmark)</code></pre>
 )</code></pre>
 <pre><code>## Unit: milliseconds
 ##       expr     min       lq     mean  median      uq      max neval
-##      dplyr 52.8870 64.31645 73.86538 70.3037 76.3371 206.3448   100
-##  tidytable 28.9034 35.33120 42.71443 39.3084 44.9682 121.6676   100</code></pre>
+##      dplyr 59.5789 71.24765 81.65518 77.3584 86.6212 212.3345   100
+##  tidytable 31.2169 40.89220 47.17883 45.3884 50.4159 148.5707   100</code></pre>
 <p>A nice feature of <code>tidytable</code> is that you can use it
 interchangeably with <code>dplyr</code>and <code>data.table</code>.</p>
 <p>For (an admittedly convoluted) example we can join the
@@ -1577,24 +1576,24 @@ resamples of the two variables. To do this we are using both
 pipes.</p>
 <pre class="r"><code>gapminder %&gt;% 
    tidytable::mutate.(pop_cap = paste0(pop, &quot;-&quot;, gdpPercap)) %&gt;%
-    .[, pop_cap := pop_cap[sample.int(.N, .N, replace = TRUE)],
-      by = c(&#39;year&#39;, &#39;continent&#39;) ]  %&gt;%
-    tidytable::separate.(., pop_cap, c(&#39;pop2&#39;, &#39;gdp&#39;), sep = &#39;-&#39;) %&gt;%
-    tidytable::mutate.(pop2 = as.numeric(pop2), 
+   tidytable::dt(, pop_cap := pop_cap[sample.int(.N, .N, replace = TRUE)],
+                              by = c(&#39;year&#39;, &#39;continent&#39;) ) %&gt;%
+   tidytable::separate.(., pop_cap, c(&#39;pop2&#39;, &#39;gdp&#39;), sep = &#39;-&#39;) %&gt;%
+   tidytable::mutate.(pop2 = as.numeric(pop2), 
                        gdp = as.numeric(gdp))</code></pre>
 <pre><code>## # A tidytable: 1,704 × 8
-##    country     continent  year lifeExp      pop gdpPercap      pop2    gdp
-##    &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;     &lt;dbl&gt;  &lt;dbl&gt;
-##  1 Afghanistan Asia       1952    28.8  8425333      779.   1439529  4835.
-##  2 Afghanistan Asia       1957    30.3  9240934      821.    882134   913.
-##  3 Afghanistan Asia       1962    32.0 10267083      853.  10421936  1074.
-##  4 Afghanistan Asia       1967    34.0 11537966      836.    202182 14805.
-##  5 Afghanistan Asia       1972    36.1 13079460      740. 862030000   677.
-##  6 Afghanistan Asia       1977    38.4 14880372      786.  12845381  3828.
-##  7 Afghanistan Asia       1982    39.9 12881816      978.  43072751  7608.
-##  8 Afghanistan Asia       1987    40.8 13867957      852.  13867957   852.
-##  9 Afghanistan Asia       1992    41.7 16317921      649.  16945857 24842.
-## 10 Afghanistan Asia       1997    41.8 22227415      635.   1765345 40301.
+##    country     continent  year lifeExp      pop gdpPercap     pop2    gdp
+##    &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;
+##  1 Afghanistan Asia       1952    28.8  8425333      779. 82052000   750.
+##  2 Afghanistan Asia       1957    30.3  9240934      821.  9682338   598.
+##  3 Afghanistan Asia       1962    32.0 10267083      853. 10421936  1074.
+##  4 Afghanistan Asia       1967    34.0 11537966      836. 13648692  2644.
+##  5 Afghanistan Asia       1972    36.1 13079460      740. 12412593   675.
+##  6 Afghanistan Asia       1977    38.4 14880372      786.   297410 19340.
+##  7 Afghanistan Asia       1982    39.9 12881816      978.  5264500 14561.
+##  8 Afghanistan Asia       1987    40.8 13867957      852. 51889696  6643.
+##  9 Afghanistan Asia       1992    41.7 16317921      649. 10150094   682.
+## 10 Afghanistan Asia       1997    41.8 22227415      635.  5531387 20897.
 ## # … with 1,694 more rows</code></pre>
 <p>Some additional speed test examples <a href="https://markfairbanks.github.io/tidytable/articles/speed_comparisons.html" class="uri">https://markfairbanks.github.io/tidytable/articles/speed_comparisons.html</a></p>
 </div>
