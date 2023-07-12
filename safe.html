@@ -1739,6 +1739,7 @@ your assessment output and it should generate the appropriate table.</p>
 <p>Tables from .Rmd to .docx are a bit of a pain. If you are in a pinch,
 I recommend simply exporting your table data as a .csv then editing in
 Excel/Word.</p>
+<p>Provide a and credible intervals (Table 10-@ref(tab:mcmcpar)).</p>
 </div>
 <div id="figures" class="section level2">
 <h2>Figures</h2>
@@ -1751,6 +1752,10 @@ document full of text and code combined.</p>
 <pre><code>```{r,fswath, fig.cap=&quot;Median northern rockfish spawning stock biomass from MCMC simulations with Bayesian credible intervals including projections for 2023-2037, when managing under Scenario 2. Assumes the same average yield ratio forward in time. Dotted horizontal line is $B_{40\\%}$ and solid horizontal line is $B_{35\\%}$ based on recruitments from 1977-2018. Each shade is 5% of the posterior distribution.&quot;, wrapper = TRUE}</code></pre>
 <pre class="r"><code>knitr::include_graphics(here::here(year, pref_mod, &quot;figs&quot;, &quot;swath.png&quot;))</code></pre>
 <pre><code>```</code></pre>
+<p>This figure has a label <code>fswath</code> (same as the chunk label)
+which can now be referenced as Figure 10-@ref(fig:fswath). If the
+location of the figure is moved the reference number will update to
+match when compiled.</p>
 </div>
 <div id="references" class="section level2">
 <h2>References</h2>
@@ -2102,12 +2107,19 @@ for more info.</p>
 <li>bring tables in as .csv files then manipulate (or edit in Excel and
 append to Word doc if the table is too complicated)</li>
 </ul></li>
+<li>compartmentalize everything</li>
 </ol>
 </div>
 <div id="todo" class="section level1">
 <h1>Todo</h1>
-<p>[] Example of production workflow [] github tips/tricks []
-table/fig/eq referencing [] complex math [] figure sizes</p>
+<ul class="task-list">
+<li><input type="checkbox" disabled></input>Example of production
+workflow</li>
+<li><input type="checkbox" disabled></input>github tips/tricks</li>
+<li><input type="checkbox" disabled></input>table/fig/eq referencing</li>
+<li><input type="checkbox" disabled></input>complex math</li>
+<li><input type="checkbox" disabled></input>figure sizes</li>
+</ul>
 <p>Probably lot’s of things I can’t think of at the moment…</p>
 </div>
 </div>
